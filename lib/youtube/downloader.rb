@@ -20,6 +20,8 @@ module Youtube
 
     def download!
       handle_error do
+        Rails.logger.debug "Youtube: #{command}"
+
         `#{command}`.strip
       end
     end
