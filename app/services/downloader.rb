@@ -1,6 +1,10 @@
+require 'youtube/downloader'
+
 class Downloader
-  def initialize(video_id)
-    @video_id = video_id
+  attr_accessor :video
+
+  def initialize(video)
+    @video = video
   end
 
   def download!
@@ -15,11 +19,8 @@ class Downloader
   end
 
   def update_video_filename
-    video.update_attribute(:video_filename, video_filename)
-  end
-
-  def video
-    @video ||= Video.find(@video_id)
+    video.video_filename = video_filename
+    video.save!
   end
 
   def video_filename
