@@ -18,6 +18,9 @@ gem 'jquery-rails'
 gem 'rails-backbone'
 gem 'slim'
 
+gem 'pg'
+gem 'delayed_job_active_record'
+
 group :development do
   gem 'quiet_assets'
   gem 'foreman'
