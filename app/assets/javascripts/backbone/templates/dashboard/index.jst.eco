@@ -1,4 +1,7 @@
 <form class="new-video">
+  <span class="errors">Url can't be blank</span>
   <input type="text" name="url" class="video-url"/>
   <input type="submit" value="Gif me!"/>
 </form>
+
+<div class="video"></div>
