@@ -6,7 +6,7 @@ class Gifme.Views.Dashboard extends Backbone.View
     'submit form.new-video': 'renderVideoRecord'
 
   render: ->
-    @$el.html(JST['backbone/templates/dashboard/index']())
+    @$el.html(JST['backbone/templates/app/dashboard']())
     @_hideErrors()
     @
 
@@ -17,7 +17,9 @@ class Gifme.Views.Dashboard extends Backbone.View
     if data['url'].trim().length
       @videoRecord.url = data['url']
       @_hideErrors()
+      @_hideForm()
       @$el.find('.video').append(@videoRecord.render().$el)
+      @videoRecord.embedSwf()
     else
       @_showErrors()
 
