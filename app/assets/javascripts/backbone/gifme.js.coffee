@@ -9,3 +9,10 @@ window.Gifme =
   Collections: {}
   Routers: {}
   Views: {}
+
+  initialize: ->
+    @router = new Gifme.Routers.AppRouter
+
+    unless Backbone.history.started
+      Backbone.history.start()
+      Backbone.history.started = true

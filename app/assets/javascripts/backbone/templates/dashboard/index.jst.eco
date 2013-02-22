@@ -1,0 +1,4 @@
+<form class="new-video">
+  <input type="text" name="url" class="video-url"/>
+  <input type="submit" value="Gif me!"/>
+</form>

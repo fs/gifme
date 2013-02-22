@@ -18,3 +18,4 @@
 //= require backbone_datalink
 //= require backbone/gifme
 //= require_tree .
+//= require backbone.syphon

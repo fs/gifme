@@ -1,0 +1,2 @@
+$ ->
+  Gifme.initialize()

@@ -27,6 +27,7 @@ gem "fog", "~> 1.3.1"
 gem 'carrierwave'
 
 gem 'thin'
+gem 'eco'
 
 group :development do
   gem 'slim-rails'
