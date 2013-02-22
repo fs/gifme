@@ -20,6 +20,10 @@ gem 'slim'
 
 gem 'pg'
 gem 'delayed_job_active_record'
+
+gem "fog", "~> 1.3.1"
+gem 'carrierwave'
+
 gem 'thin'
 
 group :development do
