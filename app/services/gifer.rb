@@ -1,4 +1,4 @@
-require 'flv_to_gif'
+require 'video_to_gif'
 
 class Gifer
   attr_accessor :video
