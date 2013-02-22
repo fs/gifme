@@ -17,6 +17,8 @@ end
 gem 'jquery-rails'
 gem 'rails-backbone'
 gem 'slim'
+gem 'decent_exposure'
+gem 'simple_form'
 
 gem 'pg'
 gem 'delayed_job_active_record'
@@ -27,6 +29,7 @@ gem 'carrierwave'
 gem 'thin'
 
 group :development do
+  gem 'slim-rails'
   gem 'quiet_assets'
   gem 'foreman'
 end
