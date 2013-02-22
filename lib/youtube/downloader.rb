@@ -1,9 +1,9 @@
 require 'fileutils'
 
-# Will save downlaoded video to /tmp/test/jHvmgOqwI1o.flv
+# Will save downlaoded video to /tmp/test.flv
 #
 #   require 'youtube/downloader'
-#   Youtube::Downloader.new('https://www.youtube.com/watch?v=jHvmgOqwI1o', '/tmp/test').download!
+#   Youtube::Downloader.new('https://www.youtube.com/watch?v=jHvmgOqwI1o', '/tmp/test.flv').download!
 #
 module Youtube
   class Downloader
@@ -44,11 +44,7 @@ module Youtube
     end
 
     def output_options
-      %{--output "#{output_path}/%(id)s.%(ext)s"}
-    end
-
-    def output_path
-      FileUtils.mkdir_p(@output_path).first
+      %{--output "#{@output_path}"}
     end
   end
 end
