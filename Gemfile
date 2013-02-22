@@ -15,6 +15,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'rails-backbone'
+gem 'slim'
 
 group :development do
   gem 'quiet_assets'
@@ -24,4 +26,5 @@ end
 group :development, :test do
   gem 'debugger'
   gem 'dotenv'
+  gem 'jasmine'
 end
