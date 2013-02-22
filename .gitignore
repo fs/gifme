@@ -9,7 +9,7 @@ doc/**/*
 vendor/bundle
 vendor/cache
 vendor/ruby
-bin
+/bin
 .sass-cache
 ._*
 .env
