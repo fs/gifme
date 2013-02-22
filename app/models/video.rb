@@ -1,4 +1,5 @@
 require 'youtube/downloader'
+require 'youtube'
 
 class Video < ActiveRecord::Base
   validates :url, youtube: true
