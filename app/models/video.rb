@@ -1,5 +1,7 @@
 class Video < ActiveRecord::Base
-  validates :url, :start, :duration, presence: true
+  validates :url, presence: true
+  validates :start, :duration, numericality: { only_integer: true, greater_than: 0 }
+
   attr_accessible :url, :start, :duration
 
   mount_uploader :gif, VideoGifUploader
