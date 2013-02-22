@@ -20,6 +20,7 @@ gem 'slim'
 
 gem 'pg'
 gem 'delayed_job_active_record'
+gem 'thin'
 
 group :development do
   gem 'quiet_assets'
