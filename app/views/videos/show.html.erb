@@ -1,0 +1,11 @@
+<% if video.gifed? %>
+  <%= image_tag(video.gif.url) %>
+<% else %>
+  Please wait...
+
+  <%= javascript_tag do %>
+    setTimeout(function(){
+      window.location.reload(1);
+    }, 5000);
+  <% end %>
+<% end %>
