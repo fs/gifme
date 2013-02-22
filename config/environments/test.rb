@@ -29,6 +29,7 @@ Gifme::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  config.assets.paths << Rails.root.join('spec', 'javascripts')
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
