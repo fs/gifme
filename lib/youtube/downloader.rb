@@ -1,25 +1,34 @@
 require 'fileutils'
 
-# Youtube::Downloader.new('https://www.youtube.com/watch?v=jHvmgOqwI1o', '/tmp/test')
+# Will save downlaoded video to /tmp/test/jHvmgOqwI1o.flv
+#
+#   require 'youtube/downloader'
+#   Youtube::Downloader.new('https://www.youtube.com/watch?v=jHvmgOqwI1o', '/tmp/test').download!
 #
 module Youtube
   class Downloader
     YOUTUBE_DL = 'bin/youtube-dl'
     YOUTUBE_DL_OPTIONS = [
       '--no-progress',
+      '--max-filesize 100m',
       '--format 5'
     ]
 
     def initialize(url, output_path)
       @url, @output_path = url, output_path
+    end
 
-      download!
+    def download!
+      handle_error do
+        `#{command}`.strip
+      end
     end
 
     private
 
-    def download!
-      `#{command}`.strip
+    def handle_error
+      result = yield
+      raise result.to_s unless $?.to_i == 0
     end
 
     def command
