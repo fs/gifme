@@ -24,6 +24,6 @@ class Downloader
   end
 
   def video_filename
-    @video_filename ||= File.join(Dir.tmpdir, "#{SecureRandom.hex}.flv")
+    @video_filename ||= File.join(Rails.root, 'tmp', "#{SecureRandom.hex}.mp4")
   end
 end

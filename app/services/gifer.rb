@@ -1,4 +1,4 @@
-require 'flv_to_gif'
+require 'video_to_gif'
 
 class Gifer
   attr_accessor :video
@@ -25,7 +25,7 @@ class Gifer
   end
 
   def perform_gif_generation
-    FlvToGif.new(video.video_filename).gif('3', '2', gif_filename)
+    VideoToGif.new(video.video_filename).gif(video.start, video.duration, gif_filename)
   end
 
   def update_gif
