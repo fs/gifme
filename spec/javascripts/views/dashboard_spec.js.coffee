@@ -10,19 +10,22 @@ describe 'Gifme.Views.Dashboard', ->
           @dashboard.$el.find('form').trigger('submit')
           expect($('.errors')).toBeVisible()
 
-        it 'does not set video url', ->
+        it 'does not calls embedSWF with video url', ->
+          spyOn(Gifme.Views.VideoRecord::, 'embedSWF')
           setFixtures(@dashboard.render())
-          expect(@dashboard.videoRecord.url).toEqual('')
           @dashboard.$el.find('form').trigger('submit')
-          expect(@dashboard.videoRecord.url).toEqual('')
+
+          expect(Gifme.Views.VideoRecord::embedSWF).not.toHaveBeenCalled()
 
       describe 'when input is present', ->
-        it 'sets video url for the video record view from input', ->
+        it 'calls embedSWF with video url', ->
+          spyOn(Gifme.Views.VideoRecord::, 'embedSWF')
+          url = 'http://link-to-video.com'
           setFixtures(@dashboard.render())
-          expect(@dashboard.videoRecord.url).toEqual('')
-          @dashboard.$el.find('input.video-url').val('http://link-to-video.com')
+          @dashboard.$el.find('input.video-url').val(url)
           @dashboard.$el.find('form').trigger('submit')
-          expect(@dashboard.videoRecord.url).toEqual('http://link-to-video.com')
+
+          expect(Gifme.Views.VideoRecord::embedSWF).toHaveBeenCalledWith(url)
 
         it 'hides error', ->
           setFixtures(@dashboard.render())

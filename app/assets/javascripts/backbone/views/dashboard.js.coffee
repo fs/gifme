@@ -15,11 +15,10 @@ class Gifme.Views.Dashboard extends Backbone.View
     data = Backbone.Syphon.serialize(@)
 
     if data['url'].trim().length
-      @videoRecord.url = data['url']
       @_hideErrors()
       @_hideForm()
       @$el.find('.video').append(@videoRecord.render().$el)
-      @videoRecord.embedSwf()
+      @videoRecord.embedSWF(data['url'])
     else
       @_showErrors()
 

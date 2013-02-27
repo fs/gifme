@@ -7,13 +7,12 @@ class Gifme.Views.VideoRecord extends Backbone.View
 
   videoParams:
     containerId: 'embedded'
-    width: '640'
-    height: '390'
+    width: 640
+    height: 390
     urlParams: "enablejsapi=1&version=3"
     params: allowScriptAccess: "always"
 
   initialize: ->
-    @url = ''
     @started = false
     @bindEvents()
 
@@ -21,8 +20,8 @@ class Gifme.Views.VideoRecord extends Backbone.View
     @$el.html(JST['backbone/templates/app/video_record']())
     @
 
-  embedSwf: ->
-    swfobject.embedSWF @_getValidUrl(),
+  embedSWF: (url) ->
+    swfobject.embedSWF @_getValidUrl(url),
       @videoParams.containerId,
       @videoParams.width,
       @videoParams.height,
@@ -50,8 +49,8 @@ class Gifme.Views.VideoRecord extends Backbone.View
     @player = $("##{@videoParams.containerId}")[0]
     @$el.find('.btn-record').removeClass('disabled')
 
-  _getValidUrl: ->
-    url = $.url(@url)
+  _getValidUrl: (url) ->
+    url = $.url(url)
     url = "#{url.attr('protocol')}://#{url.attr('host')}/v/#{url.param('v')}"
 
     "#{url}?#{@videoParams.urlParams}"
