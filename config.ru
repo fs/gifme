@@ -5,6 +5,6 @@ run Gifme::Application
 
 if Rails.env.production?
   DelayedJobWeb.use Rack::Auth::Basic do |username, password|
-    username == ENV['DJOB_USER'] && password == ENV['DJOB_PASS']
+    username == ENV['DELAYED_JOB_USER'] && password == ENV['DELAYED_JOB_PASSWORD']
   end
 end
