@@ -1,6 +1,14 @@
-class Video < ActiveRecord::Base
-  validates :url, :start, :duration, presence: true
-  attr_accessible :url, :start, :duration
+class Video
+  include DataMapper::Resource
+
+  with_options required: true do |klass|
+    property :url, String
+    property :start, Integer
+    property :duration, Integer
+  end
+
+  property :id, Serial
+  property :video_filename, String
 
   mount_uploader :gif, VideoGifUploader
 

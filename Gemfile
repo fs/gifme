@@ -9,7 +9,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', platforms: :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -20,13 +20,15 @@ gem 'slim'
 gem 'decent_exposure'
 gem 'simple_form'
 
-gem 'pg'
-gem 'delayed_job_active_record'
+gem 'delayed_job_data_mapper'
 
 gem "fog", "~> 1.3.1"
-gem 'carrierwave'
+gem 'carrierwave-datamapper'
 
 gem 'thin'
+
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
 
 group :development do
   gem 'slim-rails'
