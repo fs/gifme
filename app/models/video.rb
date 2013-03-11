@@ -2,9 +2,9 @@ class Video
   include DataMapper::Resource
 
   with_options required: true do |klass|
-    property :url, String
-    property :start, Integer
-    property :duration, Integer
+    klass.property :url, String
+    klass.property :start, Integer
+    klass.property :duration, Integer
   end
 
   property :id, Serial
