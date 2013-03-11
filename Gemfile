@@ -24,11 +24,13 @@ gem 'delayed_job_data_mapper'
 
 gem "fog", "~> 1.3.1"
 gem 'carrierwave-datamapper'
+gem 'strong_parameters'
 
 gem 'thin'
 
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'dm-rails'
 
 group :development do
   gem 'slim-rails'

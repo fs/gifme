@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   respond_to :html, :json
-  expose :video
+
+  expose(:video, attributes: :video_params)
 
   def new
   end
@@ -12,5 +13,11 @@ class VideosController < ApplicationController
 
   def show
     respond_with(video)
+  end
+
+  private
+
+  def video_params
+    params.require(:video).permit(:url, :start, :duration)
   end
 end
